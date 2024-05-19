@@ -7,4 +7,8 @@ import './bootstrap.js';
  */
 import './styles/app.css';
 
+import { Dropdown, initMDB } from "mdb-ui-kit";
+
+initMDB({ Dropdown });
+
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');

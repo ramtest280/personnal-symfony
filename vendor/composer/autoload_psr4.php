@@ -75,6 +75,8 @@ return array(
     'Psr\\Cache\\' => array($vendorDir . '/psr/cache/src'),
     'PhpParser\\' => array($vendorDir . '/nikic/php-parser/lib/PhpParser'),
     'Metadata\\' => array($vendorDir . '/jms/metadata/src'),
+    'Flasher\\Symfony\\' => array($vendorDir . '/php-flasher/flasher-symfony'),
+    'Flasher\\Prime\\' => array($vendorDir . '/php-flasher/flasher'),
     'EasyCorp\\Bundle\\EasyAdminBundle\\' => array($vendorDir . '/easycorp/easyadmin-bundle/src'),
     'Doctrine\\SqlFormatter\\' => array($vendorDir . '/doctrine/sql-formatter/src'),
     'Doctrine\\Persistence\\' => array($vendorDir . '/doctrine/persistence/src/Persistence'),

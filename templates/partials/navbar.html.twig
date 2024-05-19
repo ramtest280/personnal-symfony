@@ -1,47 +1,74 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Projet TEST</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+  <!-- Container wrapper -->
+  <div class="container">
+    <!-- Toggle button -->
+    <button
+      data-mdb-collapse-init
+      class="navbar-toggler"
+      type="button"
+      data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
     </button>
-    <div class="collapse navbar-collapse" id="navbarScroll">
-      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Navbar brand -->
+      <a class="navbar-brand mt-2 mt-lg-0" href="#">
+        <img
+          src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
+          height="15"
+          alt="MDB Logo"
+          loading="lazy"
+        />
+      </a>
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link" href="#">Dashboard</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Profile</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Link
-          </a>
+          <a class="nav-link" href="#">Team</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Link</a>
+          <a class="nav-link" href="#">Projects</a>
         </li>
       </ul>
-      <form class="d-flex">
-        {{ app.user.email }}
-        {{ app.user.nom}}
-
-            {% if app.user.avatar %}
-                <div>
-                    <img src="{{ asset('uploads/avatars/' ~ app.user.avatar) }}" alt="Avatar de {{ app.user.nom }}" class="rounded-circle" style="width: 150px; height: 50px; border-radius: 100px; object-fit: cover;">
-                </div>
-            {% else %}
-                <p>Vous n'avez pas encore d'avatar.</p>
-            {% endif %}
-
-            {% if app.user.cv %}
-                <div>
-                    <a href="{{ asset('uploads/cvs/' ~ app.user.cv) }}" target="_blank">Voir le CV</a>
-                </div>
-            {% else %}
-                <p>Vous n'avez pas encore téléchargé de CV.</p>
-            {% endif %}
-            <a href="{{ path('app_logout')}}">Deconnexion</a>
-      </form>
+      <!-- Left links -->
     </div>
+    <!-- Collapsible wrapper -->
+
+    <!-- Right elements -->
+    <div class="d-flex align-items-center">
+      <!-- Icon -->
+      <a class="text-reset me-3" href="#">
+        <i class="fas fa-shopping-cart"></i>
+      </a>
+
+      <!-- Avatar -->
+      <div class="dropdown">
+        {% if app.user.avatar %}    
+          <img
+            src="{{ asset('uploads/avatars/' ~ app.user.avatar) }}"
+            class="rounded-circle"
+            height="35"
+            alt="Profile ..."
+            loading="lazy"
+          />
+          {% else %}
+                <p>Vous n'avez pas encore d'avatar.</p>
+          {% endif %}
+        </a>
+        
+      </div>
+    </div>
+    <!-- Right elements -->
   </div>
+  <!-- Container wrapper -->
 </nav>
+<!-- Navbar -->

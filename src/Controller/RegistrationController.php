@@ -76,6 +76,8 @@ class RegistrationController extends AbstractController
                 $user->setCv($newFilename);
             }
 
+            $this->addFlash('success', 'Utilisateur ajoutee avec success');
+
             $entityManager->persist($user);
             $entityManager->flush();
 

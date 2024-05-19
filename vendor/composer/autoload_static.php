@@ -22,6 +22,8 @@ class ComposerStaticInit2e074b178cf99c894ccdda33ec3f7bde
         '2203a247e6fda86070a5e4e07aed533a' => __DIR__ . '/..' . '/symfony/clock/Resources/now.php',
         'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
         '09f6b20656683369174dd6fa83b7e5fb' => __DIR__ . '/..' . '/symfony/polyfill-uuid/bootstrap.php',
+        '1c9051359cc4715f5f9b335dba6482da' => __DIR__ . '/..' . '/php-flasher/flasher/functions.php',
+        'da91a01b5badbe5394c83814ef5982ea' => __DIR__ . '/..' . '/php-flasher/flasher/helpers.php',
         'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
     );
 
@@ -109,6 +111,11 @@ class ComposerStaticInit2e074b178cf99c894ccdda33ec3f7bde
         'M' => 
         array (
             'Metadata\\' => 9,
+        ),
+        'F' => 
+        array (
+            'Flasher\\Symfony\\' => 16,
+            'Flasher\\Prime\\' => 14,
         ),
         'E' => 
         array (
@@ -418,6 +425,14 @@ class ComposerStaticInit2e074b178cf99c894ccdda33ec3f7bde
         'Metadata\\' => 
         array (
             0 => __DIR__ . '/..' . '/jms/metadata/src',
+        ),
+        'Flasher\\Symfony\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/php-flasher/flasher-symfony',
+        ),
+        'Flasher\\Prime\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/php-flasher/flasher',
         ),
         'EasyCorp\\Bundle\\EasyAdminBundle\\' => 
         array (
