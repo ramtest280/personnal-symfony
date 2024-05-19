@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProductController!{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1> Publier un produit</h1>
+
+        {{ form_start(form) }}
+            {{ form(form, {'method': 'GET'}) }}
+            <button class="btn btn-primary mt-2" type="submit">Publier</button>
+        {{ form_end(form) }}
+    </div>
+    
+    
+{% endblock %}
