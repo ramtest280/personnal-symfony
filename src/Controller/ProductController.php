@@ -14,7 +14,7 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 class ProductController extends AbstractController
 {
-    #[Route('/product', name: 'app_product', methods:["GET", "POST"])]
+    #[Route('/product/create', name: 'app_product', methods:["GET", "POST"])]
     #[IsGranted('ROLE_USER')]
     public function index(Request $request, EntityManagerInterface $em): Response
     {
@@ -24,10 +24,13 @@ class ProductController extends AbstractController
         if($form->isSubmitted() && $form->isValid()){
             $product->setCreatedAt(new \DateTimeImmutable());
             $user = $this->getUser();
-            $product->setUt($user);
+            $product->setUtilisateur($user);
+            // $product->setUt($user);
 
+            $this->addFlash('success', 'Publication envoyee');
             $em->persist($product);
             $em->flush();
+            
 
             return $this->redirectToRoute('app_home');
         }

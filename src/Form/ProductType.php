@@ -9,6 +9,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -32,18 +33,13 @@ class ProductType extends AbstractType
                     'class' => 'form-control w-2'
                 ]
             ])
-            ->add('images', FileType::class, [
-                'attr' => [
-                    'class' => 'form-control w-2'
-                ]
-            ])
             ->add('imageName', DropzoneType::class, [
                 'attr' => [
                     'class' => 'form-control w-2'
                 ]
             ])
-            // ->add('imageSize')
-            ->add('price', NumberType::class, [
+            ->add('price', MoneyType::class, [
+                
                 'attr' => [
                     'class' => 'form-control w-2'
                 ]

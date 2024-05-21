@@ -25,7 +25,7 @@ class TutoCrudController extends AbstractCrudController
             IdField::new('id')->hideOnForm(),
             TextField::new('titre'),
             TextEditorField::new('Auteur'),
-            DateTimeField::new('created_at')->onlyWhenCreating(),
+            DateTimeField::new('created_at'),
             ImageField::new('images')->setUploadDir('public/uploads/tuto/'),
         ];
     }

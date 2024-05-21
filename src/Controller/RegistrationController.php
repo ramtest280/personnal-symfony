@@ -57,25 +57,6 @@ class RegistrationController extends AbstractController
                 $user->setAvatar($newFilename);
             }
 
-            #CV
-            $cvFile = $form->get('cv')->getData();
-            if ($cvFile) {
-                $originalFilename = pathinfo($cvFile->getClientOriginalName(), PATHINFO_FILENAME);
-                $safeFilename = $sluggerInterface->slug($originalFilename);
-                $newFilename = $safeFilename.'-'.uniqid().'.'.$cvFile->guessExtension();
-
-                try {
-                    $cvFile->move(
-                        $this->getParameter('cv_directory'),
-                        $newFilename
-                    );
-                } catch (FileException $e) {
-                    // Handle exception
-                }
-
-                $user->setCv($newFilename);
-            }
-
             $this->addFlash('success', 'Utilisateur ajoutee avec success');
 
             $entityManager->persist($user);

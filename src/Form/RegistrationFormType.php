@@ -4,7 +4,6 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -13,9 +12,6 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints\EqualTo;
-use Symfony\Component\Validator\Constraints\File as ConstraintsFile;
-use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
@@ -31,8 +27,6 @@ class RegistrationFormType extends AbstractType
             ])
 
             ->add('plainPassword', RepeatedType::class, [
-                // instead of being set onto the object directly,
-                // this is read and encoded in the controller
                 'type' => PasswordType::class,
                 'first_options' => 
                     [
@@ -42,15 +36,12 @@ class RegistrationFormType extends AbstractType
                 'second_options' => 
                 [
                     'label' => 'Confirmez votre de passe',
-                    'attr' => [
-                        'class' => 'form-control mt-2'
-                    ]
+                    'attr' => ['class' => 'form-control']
                 ],
-                'invalid_message' => 'Veuillez inserer une mot de passe',
                 'mapped' => false,
                 'attr' => [
                     'placeholder' => 'Mot de passe',
-                    'class' => 'form-control mt-2' 
+                    'class' => 'form-control' 
                 ],
                 
                 'constraints' => [
@@ -92,23 +83,7 @@ class RegistrationFormType extends AbstractType
                 'attr' => [
                     'class' => 'form-control mt-2 mb-2' 
                 ]
-            ])
-            ->add('cv', FileType::class, [
-                'label' => 'CV (PDF file)',
-                'mapped' => false,
-                'required' => false,
-                'constraints' => [
-                    new File([
-                        'maxSize' => '2048k',
-                        'mimeTypes' => [
-                            'application/pdf',
-                            'application/docx'
-                        ],
-                        'mimeTypesMessage' => 'Please upload a valid PDF document',
-                    ])
-                ],
-            ]);
-            
+            ])    
         ;
     }
 

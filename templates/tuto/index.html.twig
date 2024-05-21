@@ -3,18 +3,25 @@
 {% block title %}Hello TutoController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    {% include 'partials/navbar.html.twig' %}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/home/camille/dev/projet/src/Controller/TutoController.php</code></li>
-        <li>Your template at <code>/home/camille/dev/projet/templates/tuto/index.html.twig</code></li>
-    </ul>
-</div>
+    <div class="container">
+        <div class="row">
+        {% for tuto in tutos %}
+            <div class="col-md-4">
+                <div class="card mb-4 mt-2 custom-card">
+                    <img src="{{ asset('uploads/tuto/' ~ tuto.images) }}" class="img-fluid img-thumbnail" alt="Tuto Image">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ tuto.titre }}</h5>
+                        <p class="card-text"><small class="text-muted">By {{ tuto.auteur }}</small></p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-sm btn-primary btnseedetails">Voir Details</button>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    </div>
 {% endblock %}

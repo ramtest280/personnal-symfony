@@ -42,19 +42,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private ?string $avatar = null;
 
-    // #[ORM\Column(length: 255)]
-    #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private ?string $cv = null;
-
     /**
      * @var Collection<int, Product>
      */
-    #[ORM\OneToMany(targetEntity: Product::class, mappedBy: 'ut')]
-    private Collection $product;
+    #[ORM\OneToMany(targetEntity: Product::class, mappedBy: 'utilisateur')]
+    private Collection $products;
 
     public function __construct()
     {
-        $this->product = new ArrayCollection();
+        $this->products = new ArrayCollection();
     }
 
 
@@ -157,31 +153,19 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getCv(): ?string
-    {
-        return $this->cv;
-    }
-
-    public function setCv(string $cv): self
-    {
-        $this->cv = $cv;
-
-        return $this;
-    }
-
     /**
      * @return Collection<int, Product>
      */
-    public function getProduct(): Collection
+    public function getProducts(): Collection
     {
-        return $this->product;
+        return $this->products;
     }
 
     public function addProduct(Product $product): static
     {
-        if (!$this->product->contains($product)) {
-            $this->product->add($product);
-            $product->setUt($this);
+        if (!$this->products->contains($product)) {
+            $this->products->add($product);
+            $product->setUtilisateur($this);
         }
 
         return $this;
@@ -189,15 +173,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function removeProduct(Product $product): static
     {
-        if ($this->product->removeElement($product)) {
+        if ($this->products->removeElement($product)) {
             // set the owning side to null (unless already changed)
-            if ($product->getUt() === $this) {
-                $product->setUt(null);
+            if ($product->getUtilisateur() === $this) {
+                $product->setUtilisateur(null);
             }
         }
 
         return $this;
     }
 
-   
 }
+
+   
+

@@ -3,11 +3,12 @@
 {% block title %}Hello ProductController!{% endblock %}
 
 {% block body %}
+{% include 'partials/navbar.html.twig' %}
     <div class="container">
         <h1> Publier un produit</h1>
 
         {{ form_start(form) }}
-            {{ form(form, {'method': 'GET'}) }}
+            {{ form(form) }}
             <button class="btn btn-primary mt-2" type="submit">Publier</button>
         {{ form_end(form) }}
     </div>

@@ -21,3 +21,37 @@
     border-bottom-right-radius: .3rem;
     }
     }
+
+    .custom-card {
+        width: 100%;
+        height: 300px; /* Set a fixed height for the cards */
+        display: flex;
+        flex-direction: column;
+    }
+
+    .custom-card .card-img-top {
+        height: 150px; /* Set a fixed height for the image */
+        object-fit: cover;
+    }
+
+    .custom-card .card-body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .custom-card .card-body h5 {
+        flex-shrink: 0; /* Prevent the title from being compressed */
+    }
+
+    .custom-card .card-body .card-text {
+        flex: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3; /* Number of lines to show */
+        -webkit-box-orient: vertical;
+    }
+    .custom-card .btnseedetails{
+        margin-left: 72%;
+    }

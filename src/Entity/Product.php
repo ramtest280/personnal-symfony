@@ -35,14 +35,15 @@ class Product
     #[ORM\Column]
     private ?int $price = null;
 
-    #[ORM\ManyToOne(inversedBy: 'product')]
-    private ?User $ut = null;
-
     #[ORM\Column]
     private ?\DateTimeImmutable $created_at = null;
 
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $updated_at = null;
+
+    #[ORM\ManyToOne(inversedBy: 'products')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $utilisateur = null;
 
     public function getId(): ?int
     {
@@ -85,17 +86,6 @@ class Product
         return $this;
     }
 
-    public function getUt(): ?User
-    {
-        return $this->ut;
-    }
-
-    public function setUt(?User $ut): static
-    {
-        $this->ut = $ut;
-
-        return $this;
-    }
 
     public function setImageFile(?File $imageFile = null): void
     {
@@ -153,6 +143,18 @@ class Product
     public function setUpdatedAt(?\DateTimeImmutable $updated_at): static
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    public function getUtilisateur(): ?User
+    {
+        return $this->utilisateur;
+    }
+
+    public function setUtilisateur(?User $utilisateur): static
+    {
+        $this->utilisateur = $utilisateur;
 
         return $this;
     }
